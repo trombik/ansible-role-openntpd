@@ -1,14 +1,14 @@
 ---
 
 - name: Install openntpd
-  pkgng:
+  apt:
     name: "{{ openntpd_package }}"
     state: present
 
-- name: Create /etc/rc.conf.d/openntpd
+- name: Create /etc/default/openntpd
   template:
-    src: FreeBSD.subr.j2
-    dest: "/etc/rc.conf.d/{{ openntpd_service }}"
+    src: Debian.default.j2
+    dest: "/etc/default/{{ openntpd_service }}"
     validate: sh -n %s
   register: __register_openntpd_flags
   notify:

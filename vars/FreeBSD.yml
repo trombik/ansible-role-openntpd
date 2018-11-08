@@ -1,2 +1,6 @@
-__openntpd_db_dir: /var/db/openntpd
-__openntpd_conf_dir: /usr/local/etc/openntpd
+__openntpd_user: _ntpd
+__openntpd_group: _ntpd
+__openntpd_service: openntpd
+__openntpd_package: openntpd
+__openntpd_conf_dir: /usr/local/etc
+__openntpd_bin: /usr/local/sbin/ntpd

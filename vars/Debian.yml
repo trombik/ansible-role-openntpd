@@ -1,0 +1,6 @@
+__openntpd_user: ntpd
+__openntpd_group: ntpd
+__openntpd_service: openntpd
+__openntpd_package: openntpd
+__openntpd_conf_dir: /etc/openntpd
+__openntpd_bin: /usr/sbin/ntpd

@@ -5,33 +5,22 @@
 
 - include: "install-{{ ansible_os_family }}.yml"
 
-- name: Create log directory
-  file:
-    path: "{{ openntpd_log_dir }}"
-    mode: 0755
-    owner: "{{ openntpd_user }}"
-    group: "{{ openntpd_group }}"
-    state: directory
-  notify: Restart openntpd
-
-- name: Create db directory
-  file:
-    path: "{{ openntpd_db_dir }}"
-    mode: 0755
-    owner: "{{ openntpd_user }}"
-    group: "{{ openntpd_group }}"
-    state: directory
-  notify: Restart openntpd
-
-- name: Create openntpd.conf
+- name: Create ntpd.conf
   template:
-    src: openntpd.conf.j2
+    src: ntpd.conf.j2
     dest: "{{ openntpd_conf_file }}"
-    validate: echo %s
+    validate: "{{ openntpd_bin }} -n -f %s"
+  register: __register_openntpd_ntpd_conf
   notify: Restart openntpd
 
 - name: Start openntpd
   service:
     name: "{{ openntpd_service }}"
-    enabled: true
     state: started
+
+- name: Restart openntpd at the end of the role
+  service:
+    name: "{{ openntpd_service }}"
+    state: restarted
+  when:
+    - __register_openntpd_ntpd_conf.changed or __register_openntpd_flags.changed

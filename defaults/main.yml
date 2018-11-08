@@ -1,0 +1,8 @@
+openntpd_user: openntpd
+openntpd_group: openntpd
+openntpd_log_dir: /var/log/openntpd
+openntpd_db_dir: "{{ __openntpd_db_dir }}"
+openntpd_service: openntpd
+openntpd_conf_dir: "{{ __openntpd_conf_dir }}"
+openntpd_conf_file: "{{ __openntpd_conf_dir }}/openntpd.conf"
+openntpd_flags: ""

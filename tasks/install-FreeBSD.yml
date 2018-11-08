@@ -1,0 +1,6 @@
+---
+
+- name: Install openntpd
+  pkgng:
+    name: openntpd
+    state: present

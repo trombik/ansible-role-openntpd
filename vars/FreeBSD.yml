@@ -1,0 +1,2 @@
+__openntpd_db_dir: /var/db/openntpd
+__openntpd_conf_dir: /usr/local/etc/openntpd

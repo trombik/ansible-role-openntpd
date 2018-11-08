@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+    - ansible-role-openntpd
+  vars:
+    openntpd_config: ""

@@ -1,0 +1,6 @@
+---
+
+- name: Restart openntpd
+  service:
+    name: openntpd
+    state: restarted

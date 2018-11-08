@@ -2,4 +2,8 @@
   roles:
     - ansible-role-openntpd
   vars:
-    openntpd_config: ""
+    openntpd_flags: -s
+    openntpd_config: |
+      servers pool.ntp.org
+      sensor *
+      constraints from "https://www.google.com"

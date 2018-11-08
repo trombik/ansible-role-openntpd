@@ -1,0 +1,10 @@
+---
+
+- name: Enable openntpd
+  service:
+    name: "{{ openntpd_service }}"
+    arguments: "{{ openntpd_flags }}"
+    enabled: yes
+  register: __register_openntpd_flags
+  notify:
+    - Restart openntpd

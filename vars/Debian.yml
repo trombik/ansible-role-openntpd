@@ -1,3 +1,4 @@
+---
 __openntpd_user: ntpd
 __openntpd_group: ntpd
 __openntpd_service: openntpd

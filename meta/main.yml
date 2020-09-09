@@ -9,13 +9,12 @@ galaxy_info:
   platforms:
     - name: FreeBSD
       versions:
-        - 11.2
+        - 12.1
     - name: OpenBSD
       versions:
-        - 6.4
+        - 6.7
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
 
   galaxy_tags:

@@ -1,3 +1,4 @@
+---
 openntpd_user: "{{ __openntpd_user }}"
 openntpd_group: "{{ __openntpd_group }}"
 openntpd_service: "{{ __openntpd_service }}"

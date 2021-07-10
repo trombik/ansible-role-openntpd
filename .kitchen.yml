@@ -21,9 +21,9 @@ provisioner:
     - filter_plugins
 
 platforms:
-  - name: freebsd-12.1-amd64
+  - name: freebsd-13.0-amd64
     driver:
-      box: trombik/ansible-freebsd-12.1-amd64
+      box: trombik/ansible-freebsd-13.0-amd64
       box_check_update: false
     driver_config:
       ssh:
@@ -32,9 +32,9 @@ platforms:
       extra_vars:
         ansible_python_interpreter: '/usr/local/bin/python3'
 
-  - name: openbsd-6.7-amd64
+  - name: openbsd-6.9-amd64
     driver:
-      box: trombik/ansible-openbsd-6.7-amd64
+      box: trombik/ansible-openbsd-6.9-amd64
       box_check_update: false
     driver_config:
       ssh:
@@ -43,10 +43,21 @@ platforms:
       extra_vars:
         ansible_python_interpreter: '/usr/local/bin/python3'
 
-  - name: ubuntu-18.04-amd64
+  - name: ubuntu-20.04-amd64
     driver:
-      box: trombik/ansible-ubuntu-18.04-amd64
+      box: trombik/ansible-ubuntu-20.04-amd64
       box_check_update: false
+    provisioner:
+      extra_vars:
+        ansible_python_interpreter: '/usr/bin/python3'
+
+  - name: devuan-3-amd64
+    driver:
+      box: trombik/ansible-devuan-3-amd64
+      box_check_update: false
+    provisioner:
+      extra_vars:
+        ansible_python_interpreter: '/usr/bin/python3'
 
 suites:
   - name: default

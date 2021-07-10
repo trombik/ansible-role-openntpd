@@ -8,6 +8,7 @@ service = "openntpd"
 config  = "/etc/openntpd/ntpd.conf"
 default_user = "root"
 default_group = "root"
+ntp_port = "123"
 
 case os[:family]
 when "freebsd"
@@ -30,6 +31,7 @@ describe file(config) do
   it { should be_owned_by default_user }
   it { should be_grouped_into default_group }
   its(:content) { should match(/^# Managed by ansible$/) }
+  its(:content) { should match(/^listen on/) }
 end
 
 case os[:family]
@@ -67,4 +69,8 @@ end
 describe service(service) do
   it { should be_running }
   it { should be_enabled }
+end
+
+describe port(ntp_port) do
+  it { should be_listening.on('127.0.0.1').with('udp') }
 end

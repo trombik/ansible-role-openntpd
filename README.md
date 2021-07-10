@@ -59,6 +59,7 @@ None
 # Example Playbook
 
 ```yaml
+---
 - hosts: localhost
   roles:
     - ansible-role-openntpd
@@ -68,6 +69,7 @@ None
       servers pool.ntp.org
       sensor *
       constraints from "https://www.google.com"
+      listen on 127.0.0.1
 ```
 
 # License

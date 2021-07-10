@@ -8,3 +8,4 @@
       servers pool.ntp.org
       sensor *
       constraints from "https://www.google.com"
+      listen on 127.0.0.1

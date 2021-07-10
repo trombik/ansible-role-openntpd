@@ -9,7 +9,10 @@
   template:
     src: ntpd.conf.j2
     dest: "{{ openntpd_conf_file }}"
-    validate: "{{ openntpd_bin }} -n -f %s"
+    # XXX in Debian and Ubuntu packages, additional security check prevents
+    # to read the temp file under `/root/.ansible/tmp`.
+    validate: "{% if ansible_os_family != 'Debian' %}{{ openntpd_bin }} -n -f %s{% endif %}"
+    mode: 0644
   register: __register_openntpd_ntpd_conf
   notify: Restart openntpd
 

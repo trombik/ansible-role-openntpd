@@ -72,5 +72,5 @@ describe service(service) do
 end
 
 describe port(ntp_port) do
-  it { should be_listening.on('127.0.0.1').with('udp') }
+  it { should be_listening.on("127.0.0.1").with("udp") }
 end
